@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script id="vertex-shader" type="x-shader/x-vertex">
+attribute vec4 vPosition;
+attribute vec4 vColor;
+varying vec4 fColor;
+void
+main()
+{
+    fColor = vColor;
+    gl_Position = vPosition;
+}
+</script>
+
+<script id="fragment-shader" type="x-shader/x-fragment">
+precision mediump float;
+varying vec4 fColor;
+void
+main()
+{
+    gl_FragColor = fColor;
+}
+</script>
+
+<script type="text/javascript" src="../Common/webgl-utils.js"></script>
+<script type="text/javascript" src="../Common/initShaders.js"></script>
+<script type="text/javascript" src="../Common/MV.js"></script>
+<script type="text/javascript" src="teris.js"></script>
+<script type="text/javascript" src="control.js"></script>
+<style>
+.s_btn {
+    cursor: pointer;
+    width: 112px;
+    height: 40px;
+    line-height: 41px;
+    line-height: 40px\9;
+    background-color: #f27f4e;
+    border-radius: 10px 10px 10px 10px;
+    font-size: 25px;
+    box-shadow: 3px;
+    font-weight: 400;
+    border: 0;
+    outline: 0;
+    letter-spacing: normal;
+}
+</style>
+</head>
+
+<body>
+<canvas id="gl-canvas" width="300" height="600">
+Oops ... your browser doesn't support the HTML5 canvas element
+</canvas>
+<div id="control" style="float: left;">
+    <button class="s_btn" id="startGame" type="button" onclick="startGame();">
+        开始
+    </button>
+    <p>score:</p>
+    <p id="score">0</p>
+    <p>w: rotate</p>
+    <p>a: move left</p>
+    <p>d: move right</p>
+    <p>s: move down</p>
+</div>
+</body>
+</html>
